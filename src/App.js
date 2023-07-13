@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
-
+import React ,{useState} from 'react'
+import FuncComp from './components/FuncComp'
+import ClassComp from './components/ClassComp'
 function App() {
+  const [fState,setFState]=useState(false)
+  const [value,setValue]=useState(false)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <>
+      <h1 className='heading'>Styling using functional and class components</h1>
+      <button onClick={()=>setFState(!fState)}>To see styling in functional component</button>
+      <button onClick={()=>setValue(!value)} className='button2'>To see styling in class component</button>
+       <div className='flexbox'>
+       { fState? <FuncComp/>:" "}
+       {value && <ClassComp/>}
+       </div>
+      
+      </>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
+
+
